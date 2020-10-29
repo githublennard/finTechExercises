@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lesson1/Lesson1.iml" filepath="$PROJECT_DIR$/Lesson1/Lesson1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson10/Lesson10.iml" filepath="$PROJECT_DIR$/Lesson10/Lesson10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson2/Lesson2.iml" filepath="$PROJECT_DIR$/Lesson2/Lesson2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson3/Lesson3.iml" filepath="$PROJECT_DIR$/Lesson3/Lesson3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson4/Lesson4.iml" filepath="$PROJECT_DIR$/Lesson4/Lesson4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson5/Lesson5.iml" filepath="$PROJECT_DIR$/Lesson5/Lesson5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson8/Lesson8.iml" filepath="$PROJECT_DIR$/Lesson8/Lesson8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson9/Lesson9.iml" filepath="$PROJECT_DIR$/Lesson9/Lesson9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson6/MasterHazelcastPractica.iml" filepath="$PROJECT_DIR$/Lesson6/MasterHazelcastPractica.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson7/MasterHazelcastPractica (1).iml" filepath="$PROJECT_DIR$/Lesson7/MasterHazelcastPractica (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lesson12/authorization-server/authorization-server.iml" filepath="$PROJECT_DIR$/Lesson12/authorization-server/authorization-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/finTechExercises.iml" filepath="$PROJECT_DIR$/.idea/finTechExercises.iml" />
+    </modules>
+  </component>
+</project>

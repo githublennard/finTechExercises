@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Lesson5" />
+        <module name="Lesson4" />
+        <module name="Lesson10" />
+        <module name="Lesson1" />
+        <module name="authorization-server" />
+        <module name="Lesson3" />
+        <module name="Lesson2" />
+        <module name="Lesson9" />
+        <module name="MasterHazelcastPractica (1)" />
+        <module name="Lesson8" />
+        <module name="MasterHazelcastPractica" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="authorization-server" target="11" />
+      <module name="Lesson1" target="1.8" />
+      <module name="Lesson10" target="1.5" />
+      <module name="Lesson2" target="1.8" />
+      <module name="Lesson3" target="1.8" />
+      <module name="Lesson4" target="1.8" />
+      <module name="Lesson5" target="1.8" />
+      <module name="Lesson8" target="1.8" />
+      <module name="Lesson9" target="1.5" />
+      <module name="MasterHazelcastPractica" target="1.8" />
+      <module name="MasterHazelcastPractica (1)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authorization-server" options="-parameters" />
+    </option>
+  </component>
+</project>

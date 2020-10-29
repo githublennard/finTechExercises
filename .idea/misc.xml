@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Lesson1/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson2/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson3/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson4/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson5/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson6/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson7/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson8/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson9/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson10/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson12/authorization-server/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
