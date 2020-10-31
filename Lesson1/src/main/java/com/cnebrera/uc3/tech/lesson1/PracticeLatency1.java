@@ -5,8 +5,6 @@ import com.cnebrera.uc3.tech.lesson1.simulator.SyncOpSimulRndPark;
 
 import java.util.concurrent.TimeUnit;
 import org.HdrHistogram.Histogram;
-import org.HdrHistogram.HistogramLogProcessor;
-import java.io.FileNotFoundException;
 
 /**
  * First practice, measure latency on a simple operation
@@ -21,6 +19,7 @@ public class PracticeLatency1
     private static long HIGHEST = TimeUnit.MICROSECONDS.toNanos(4000); /* Maximum registered value */
     private static int SIGNIF   = 2;      /* Significance, 2 will allow to have pretty accurate results */
     private static double SCALE = 1000d;  /* Scale from ns to ms*/
+
     public static void main(String [] args)
     {
         runCalculations();
