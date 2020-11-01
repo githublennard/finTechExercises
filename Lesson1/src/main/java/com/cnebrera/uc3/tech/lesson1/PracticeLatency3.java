@@ -7,6 +7,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.HdrHistogram.ConcurrentHistogram;
+import java.io.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.stream.IntStream;
+
 /**
  * Third practice, measure accumulated latency with multiple threads
  */
@@ -18,6 +24,10 @@ public class PracticeLatency3
     final static int NUM_EXECUTIONS = 100;
     /** Expected max executions per second */
     final static int MAX_EXPECTED_EXECUTIONS_PER_SECOND = 50;
+
+    private final static long LOWEST = 1;       /* Minimum registered value */
+    private final static long HIGHEST = 100;    /* Maximum registered value */
+    private final static int SIGNIF = 3;           /* Significant Value*/
 
     /**
      * Main method to run the practice
@@ -33,16 +43,29 @@ public class PracticeLatency3
      */
     private static void runCalculations()
     {
+        // Create a histogram object and give the asked parameters
+        ConcurrentHistogram hg = new ConcurrentHistogram(LOWEST, HIGHEST, SIGNIF), // Class ConcurrentHistogram
+                hgCumul = new ConcurrentHistogram(LOWEST, HIGHEST, SIGNIF);
         // Create a sleep time simulator, it will sleep for 10 milliseconds in each call
         BaseSyncOpSimulator syncOpSimulator = new SyncOpSimulSleep(10);
+
+        // For better comparatives
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        String[] latRes, cumLatRes;
+        int size;
 
         // List of threads
         List<Runner> runners = new LinkedList<>();
 
+        // Set autorresizable histograms
+        hg.setAutoResize(true);
+        hgCumul.setAutoResize(true);
+
         // Create the threads and start them
         for (int i = 0; i < NUM_THREADS; i ++)
         {
-            final Runner runner = new Runner(syncOpSimulator);
+            final Runner runner = new Runner(syncOpSimulator, hg, hgCumul);
             runners.add(runner);
             new Thread(runner).start();
         }
@@ -50,7 +73,23 @@ public class PracticeLatency3
         // Wait for runners to finish
         runners.forEach(Runner::waitToFinish);
 
+        // Get the outputs into a string array
+        hg.outputPercentileDistribution(ps, 1.0);
+        ps.flush();
+        latRes = baos.toString().split("[\n]");
+
+        baos.reset();
+
+        hgCumul.outputPercentileDistribution(ps, 1.0); //scale 1.0
+        ps.flush();
+        cumLatRes = baos.toString().split("[\n]"); //\n (enter new line)
+
         // TODO Show the percentile distribution of the latency calculation of each executeOp call for all threads
+
+        // Print them paired for a easier comparison
+        size = Arrays.stream(latRes).max(Comparator.comparingInt(String::length)).get().length();
+        IntStream.range(0, Math.min(latRes.length, cumLatRes.length))
+                .forEach(i -> System.out.printf("%-" + size + "." + size + "s   |   %-" + size + "." + size + "s\n", latRes[i], cumLatRes[i]));
     }
 
     /**
@@ -60,6 +99,7 @@ public class PracticeLatency3
     {
         /** The shared operation simulator */
         final BaseSyncOpSimulator syncOpSimulator;
+        private final ConcurrentHistogram hg, hgCumul;
 
         /** True if finished */
         volatile boolean finished = false;
@@ -69,9 +109,14 @@ public class PracticeLatency3
          *
          * @param syncOpSimulator shared operation simulator
          */
-        private Runner(BaseSyncOpSimulator syncOpSimulator)
+        /*private Runner(BaseSyncOpSimulator syncOpSimulator)
         {
             this.syncOpSimulator = syncOpSimulator;
+        }*/
+        private Runner(BaseSyncOpSimulator syncOpSimulator, ConcurrentHistogram hg, ConcurrentHistogram hgCumul) {
+            this.syncOpSimulator = syncOpSimulator;
+            this.hg = hg;
+            this.hgCumul = hgCumul;
         }
 
         @Override
@@ -82,15 +127,25 @@ public class PracticeLatency3
 
             // Calculate the next call time, the first time should be immediate
             long nextCallTime = System.currentTimeMillis();
+            long start, tot, extra = 0;
 
             // Execute the operation the required number of times
             for(int i = 0; i < NUM_EXECUTIONS; i++)
             {
                 // Wait until there is the time for the next call
                 while(System.currentTimeMillis() < nextCallTime);
+                start = System.currentTimeMillis(); //capture begin
 
                 // Execute the operation, it will sleep for 10 milliseconds
                 syncOpSimulator.executeOp();
+
+                tot = System.currentTimeMillis() - start;
+                extra += tot - expectedTimeBetweenCalls;
+                if (extra < 0) extra = 0;
+
+                // Record the results
+                hgCumul.recordValue(tot + extra);
+                hg.recordValue(tot);
 
                 // Calculate the next time to call execute op
                 nextCallTime += expectedTimeBetweenCalls;
