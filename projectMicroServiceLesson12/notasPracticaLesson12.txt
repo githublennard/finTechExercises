@@ -1,0 +1,14 @@
+
+1)Se inicia el proyecto con spring boot desde su web. Se descarga una archivo .zip que luego se descomprime y se levanta en el IDE.
+
+2)Se realiza la configuracion para levantar el primer microservicio y se genera un .jar, este .jar se puede generar desde el IDE: 
+
+File -> Project Structure -> Project Settings -> Artifacts -> Click green plus sign -> Jar -> From modules with dependencies
+
+3)La ruta donde debe estar el MANIFEST es: finTechExercises/projectMicroServiceLesson12/com.practica12.cloud.microservice_example/src/main/resources/META-INF/MANIFEST.MF
+
+originalmente estaba en :/src/main/java   -->> Pero no funcionaba.
+
+Luego de corregir ese detalle se puede tener el primer microservicio en un archivo .jar
+
+
