@@ -7,3 +7,16 @@ spring:
       server:
         git:
           uri: https://github.com/gorrochablan/mastercloud-practica12
+
+security:
+  basic:
+    enabled: false
+  user:
+    name: practica12
+    password: mysecret
+
+
+
+
+
+
