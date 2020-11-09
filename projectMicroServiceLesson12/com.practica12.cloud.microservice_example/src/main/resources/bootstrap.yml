@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: microservicestring
+  cloud:
+    config:
+      enabled: true
+      uri: http://practica12:mysecret@localhost:8888
+      failFast: true
+      
