@@ -9,12 +9,14 @@ File -> Project Structure -> Project Settings -> Artifacts -> Click green plus s
 
 originalmente estaba en :/src/main/java   -->> Pero no funcionaba.
 
-Luego de corregir ese detalle se puede tener el primer microservicio en un archivo .jar
+Luego de corregir ese detalle se puede tener el primer microservicio en un archivo ".jar".
 
-4)LOS ARCHIVOS EJECUTABLES ".jar" SE ENCUENTRAN EN:
+4)Luego de hacer las configuraciones previas, se procede a ejecutar el archivo principal o la clase principal, ya que de esa forma se genera el ".jar".
+
+5)LOS ARCHIVOS EJECUTABLES ".jar" SE ENCUENTRAN EN:
 /projectMicroServiceLesson12/com.practica12.cloud.microservice_example/out/artifacts/com_practica12_cloud_microservice_example_jar
 
-5)
+
 
 
 
