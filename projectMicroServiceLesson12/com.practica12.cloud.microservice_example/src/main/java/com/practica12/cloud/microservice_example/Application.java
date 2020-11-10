@@ -18,8 +18,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 //import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
@@ -72,10 +70,15 @@ class Service
 	private final String name;
 
 	//private Service()
+	/*public Service()
+	{
+		name = "UNKNOWN";
+	}*/
 	Service()
 	{
 		name = "UNKNOWN";
 	}
+
 
 	public String getName() {
 		// TODO Auto-generated method stub
