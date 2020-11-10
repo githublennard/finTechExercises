@@ -1,0 +1,18 @@
+1)En esta practica se configura el lado del servidor con: Spring config_server y Spring cloud.
+
+2)Se siguen los pasos pero los endpoints no funcionan como debe.
+
+3)Se logra securizar el servidor, para acceder hay que usar la clave por defecto que se genera en el IDE, ya que lo que se configura en el archivo ".yml" no funciona, el servidor no captura la contraseña.
+
+4)Se debe actualizar maven,luego de cargar el artifact de "security" para que no se tenga errores o warnings en el IDE.
+
+5)Para generar el ".jar" se debe hacer lo siguiente: 
+File -> Project Structure -> Project Settings -> Artifacts -> Click green plus sign -> Jar -> From modules with dependencies
+Luego de estar ahi, seleccionar la clase principal y seleccionar "copy to the output directory and link via manifest".
+
+6)La ruta donde debe estar el MANIFEST es: ../src/main/resources/META-INF/MANIFEST.MF
+
+originalmente estaba en :../src/main/java   -->> Pero no funcionaba.
+
+7)Luego hacer correr la clase principal para que asi se genere el archivo  ".jar" en el directorio. Asi mismo se genera el directorio "out" que es donde se encuentra el archivo ".jar"
+
