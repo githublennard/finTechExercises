@@ -1,6 +1,6 @@
 1)En esta practica se configura el lado del servidor con: Spring config_server y Spring cloud.
 
-2)Se siguen los pasos pero los endpoints no funcionan como debe.
+2)Se siguen los pasos pero hay que agregar ciertos pasos en codigo principal "Application.java" revisar la guia de la practica.
 
 3)Se logra securizar el servidor, para acceder hay que usar la clave por defecto que se genera en el IDE, ya que lo que se configura en el archivo ".yml" no funciona, el servidor no captura la contraseña.
 
@@ -14,5 +14,5 @@ Luego de estar ahi, seleccionar la clase principal y seleccionar "copy to the ou
 
 originalmente estaba en :../src/main/java   -->> Pero no funcionaba.
 
-7)Luego hacer correr la clase principal para que asi se genere el archivo  ".jar" en el directorio. Asi mismo se genera el directorio "out" que es donde se encuentra el archivo ".jar"
+7)Luego hacer correr la clase principal para que asi se genere el archivo  ".jar" en el directorio. Asi mismo se genera el directorio "out" que es donde se encuentra el archivo ".jar". En este caso el archivo "out" se encuentra a la altura del directorio raiz del proyecto.
 
