@@ -1,4 +1,4 @@
-# finTechExercises.
+# Fintech Practices.
 
 ## Exercises made in Java. To see deployment go to respective branch. 
 
